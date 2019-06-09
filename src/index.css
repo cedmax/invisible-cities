@@ -1,13 +1,76 @@
-body {
+@import "https://fonts.googleapis.com/css?family=Raleway:500,900&display=swap";
+
+html, body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Raleway";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h1 {
+  font-weight: 900;
+  text-align: center;
+  font-size: 500%;
+  color: white;
+  opacity: .8;
+  position: absolute;
+  transition: all 1s;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
+h1 span {
+  font-size: 60%;
+  display: block;
+  line-height: 0;
+  opacity: .8;
+}
+
+h1 span:first-of-type {
+  text-align: left;
+  text-indent: .5em;
+  margin-bottom: -8px;
+}
+
+h1 span:last-of-type {
+  text-align: left;
+  text-indent: 5.1em;
+}
+
+.title {
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.links .link {
+  margin-top: 20px;
+}
+
+.component {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  transition: all 1s;
+}
+
+.false-master {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: all .5s;
+}
+
+.component, .master, .false-master {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+}
+
