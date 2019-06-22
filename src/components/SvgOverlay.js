@@ -5,12 +5,13 @@ import venice from "../images/venice.svg";
 
 const backgrounds = { athens, wroclaw, venice };
 
-export default ({ name }) => (
+export default ({ name, children }) => (
   <div
     style={{
-      backgroundImage: `url('${backgrounds[name]}')`,
-      opacity: 0.7,
+      "--background": `url('${backgrounds[name]}')`,
     }}
-    className="component"
-  />
+    className="section component"
+  >
+    {children}
+  </div>
 );
