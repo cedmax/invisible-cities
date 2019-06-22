@@ -1,16 +1,10 @@
 import React from "react";
-import athens from "../images/athens.jpg";
-import wroclaw from "../images/wroclaw.jpg";
-import venice from "../images/venice.jpg";
-import london from "../images/london.jpg";
 
-const backgrounds = [athens, wroclaw, venice, london];
-
-export default ({ currentBackground, logoVisible }) => (
+export default ({ currentBackground, logoVisible, backgrounds }) => (
   <div
     className="false-master"
     style={{
-      backgroundImage: `url(${backgrounds[currentBackground]})`,
+      backgroundImage: `url(${require(`../images/${backgrounds[currentBackground]}.jpg`)})`,
     }}
   >
     <h1 style={{ opacity: logoVisible ? 0.8 : 0 }}>

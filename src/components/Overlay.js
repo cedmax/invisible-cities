@@ -4,7 +4,6 @@ const backgrounds = {
   athens: "#0054A6",
   wroclaw: "#04fccc",
   venice: "#E8299B",
-  london: "#196E36",
 };
 
 export default ({ name }) => (

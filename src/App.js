@@ -5,6 +5,8 @@ import FalseMaster from "./components/FalseMaster";
 import SvgOverlay from "./components/SvgOverlay";
 import pages from "./helpers/pages";
 
+const backgrounds = ["venice", "athens", "wroclaw"];
+
 export default () => {
   const pageScroller = useRef();
   const [currentBackground, setCurrentBackground] = useState(0);
@@ -27,22 +29,20 @@ export default () => {
     <div className="master">
       <FalseMaster
         logoVisible={logoVisible}
+        backgrounds={backgrounds}
         currentBackground={currentBackground}
       />
 
       <ReactPageScroller ref={pageScroller} pageOnChange={startTransition}>
+        <div />
+        <SvgOverlay name="venice" />
+        <Overlay name="venice" />
         <div />
         <SvgOverlay name="athens" />
         <Overlay name="athens" />
         <div />
         <SvgOverlay name="wroclaw" />
         <Overlay name="wroclaw" />
-        <div />
-        <SvgOverlay name="venice" />
-        <Overlay name="venice" />
-        <div />
-        <SvgOverlay name="london" />
-        <Overlay name="london" />
       </ReactPageScroller>
     </div>
   );
