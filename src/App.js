@@ -6,10 +6,12 @@ import FalseMaster from "./components/FalseMaster";
 import SvgOverlay from "./components/SvgOverlay";
 import pages from "./helpers/pages";
 import TextAbout from "./components/About";
+import TextNews from "./components/News";
+import TextArtists from "./components/Artists";
 
 const backgrounds = ["venice", "wroclaw", "athens"];
 const titles = ["About", "News", "Artists"];
-const copy = [TextAbout, TextAbout, TextAbout];
+const copy = [TextAbout, TextNews, TextArtists];
 
 const pluginWrapper = () => {
   require("fullpage.js/vendors/scrolloverflow");
