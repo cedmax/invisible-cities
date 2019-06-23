@@ -12,6 +12,13 @@ const backgrounds = ["venice", "wroclaw", "athens"];
 const titles = ["About", "News", "Artists"];
 const copy = [TextAbout, TextNews, TextArtists];
 
+if (typeof window !== "undefined") {
+  backgrounds.forEach(bk => {
+    const img = new Image();
+    img.src = `/images/${bk}.jpg`;
+  });
+}
+
 const pluginWrapper = () => {
   require("fullpage.js/vendors/scrolloverflow");
 };
