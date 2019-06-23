@@ -144,7 +144,8 @@ h2 {
 nav {
   font-size: 190%;
   position:absolute;
-  left: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 1.5rem;
 
   a, a:visited, a:active, a:hover {

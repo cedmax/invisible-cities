@@ -5,7 +5,7 @@ export default ({ sections, api }) => (
       <a
         key={section}
         onClick={() => api.moveTo(i + 2)}
-        href={`#${section}-content`}
+        href={`#${section.toLowerCase()}`}
       >
         {section}
       </a>

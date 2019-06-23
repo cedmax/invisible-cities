@@ -30,14 +30,15 @@ export default () => {
   const pagesHelper = useCallback(
     next => {
       setLogoVisible(next <= 2);
-      setCurrentBackground(Math.floor((next - 1) / 3));
+      console.log(next);
+      setCurrentBackground(Math.max(0, Math.floor((next - 2) / 2)));
     },
     [setLogoVisible, setCurrentBackground]
   );
 
   const startTransition = useCallback(
     (current, nextPage) => {
-      setMenuVisible(nextPage.anchor === "About-overlay");
+      setMenuVisible(nextPage.anchor === "about-pre");
       pagesHelper(nextPage.index + 1);
       window.fp_scrolloverflow.iscrollHandler.iScrollInstances.map(instance =>
         setTimeout(() => instance.scrollTo(0, 0), 1000)
@@ -58,20 +59,24 @@ export default () => {
         pluginWrapper={pluginWrapper}
         scrollOverflow
         navigation
-        anchors={titles.reduce((acc, item) => {
-          acc.push(`${item}-empty`, `${item}-overlay`, `${item}-content`);
-          return acc;
-        }, [])}
+        anchors={titles.reduce(
+          (acc, item) => {
+            acc.push(`${item.toLowerCase()}-pre`, `${item.toLowerCase()}`);
+            return acc;
+          },
+          [""]
+        )}
         onLeave={startTransition}
         render={({ fullpageApi }) => (
           <ReactFullpage.Wrapper>
+            <div className="section" />
+
             {backgrounds.map((background, i) => {
               const title = titles[i];
               const Copy = copy[i];
 
               return (
                 <Fragment key={background}>
-                  <div className="section" />
                   <SvgOverlay name={background}>
                     {menuVisible && <Nav api={fullpageApi} sections={titles} />}
                   </SvgOverlay>
