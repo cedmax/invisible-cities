@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import "./index.scss";
 import App from "./App";
-import * as serviceWorker from "./serviceWorker";
 
 export default App;
 
@@ -35,4 +34,7 @@ if (typeof document !== "undefined") {
   }
 }
 
-serviceWorker.unregister();
+if (typeof window !== "undefined") {
+  const serviceWorker = require("./serviceWorker");
+  serviceWorker.unregister();
+}
