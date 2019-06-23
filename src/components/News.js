@@ -17,7 +17,8 @@ export default () => (
     </section>
     <section className="slide">
       <p>
-        <h3>Past Performances</h3>
+        <strong>Past Performances</strong>
+        <br />
         5th April 2019, 7pm <br />
         <small>
           Galleries of the Fausto Melotti Exhibition Estorick Collection of

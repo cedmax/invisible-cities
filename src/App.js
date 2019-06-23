@@ -4,7 +4,6 @@ import Overlay from "./components/Overlay";
 import Nav from "./components/Nav";
 import FalseMaster from "./components/FalseMaster";
 import SvgOverlay from "./components/SvgOverlay";
-import pages from "./helpers/pages";
 import TextAbout from "./components/About";
 import TextNews from "./components/News";
 import TextArtists from "./components/Artists";
@@ -22,12 +21,13 @@ export default () => {
   const [menuVisible, setMenuVisible] = useState(false);
 
   const pagesHelper = useCallback(
-    pages({
-      setCurrentBackground,
-      setLogoVisible,
-    }),
-    []
+    next => {
+      setLogoVisible(next <= 2);
+      setCurrentBackground(Math.floor((next - 1) / 3));
+    },
+    [setLogoVisible, setCurrentBackground]
   );
+
   const startTransition = useCallback(
     (current, nextPage) => {
       setMenuVisible(nextPage.anchor === "About-overlay");

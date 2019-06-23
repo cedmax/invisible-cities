@@ -4,9 +4,9 @@ export default ({ currentBackground, logoVisible, backgrounds }) => (
   <div
     className="false-master"
     style={{
-      backgroundImage: `url(${require(`../images/${
+      backgroundImage: `url(${`/images/${
         backgrounds[currentBackground]
-      }.jpg`)})`,
+      }.jpg`})`,
     }}
   >
     <h1 style={{ opacity: logoVisible ? 0.9 : 0 }}>
