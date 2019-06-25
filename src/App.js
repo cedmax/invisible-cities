@@ -30,7 +30,6 @@ export default () => {
   const pagesHelper = useCallback(
     next => {
       setLogoVisible(next <= 2);
-      console.log(next);
       setCurrentBackground(Math.max(0, Math.floor((next - 2) / 2)));
     },
     [setLogoVisible, setCurrentBackground]
@@ -59,6 +58,7 @@ export default () => {
         pluginWrapper={pluginWrapper}
         scrollOverflow
         navigation
+        normalScrollElements=".ReactModal__Content"
         anchors={titles.reduce(
           (acc, item) => {
             acc.push(`${item.toLowerCase()}-pre`, `${item.toLowerCase()}`);
@@ -81,7 +81,7 @@ export default () => {
                     {menuVisible && <Nav api={fullpageApi} sections={titles} />}
                   </SvgOverlay>
                   <Overlay title={title} name={background}>
-                    <Copy />
+                    <Copy allowScrolling={fullpageApi && fullpageApi.setAllowScrolling} />
                   </Overlay>
                 </Fragment>
               );

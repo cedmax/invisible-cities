@@ -3,11 +3,13 @@ import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import "./index.scss";
 import App from "./App";
-
+import Modal from 'react-modal'
 export default App;
 
 // Render your app
 if (typeof document !== "undefined") {
+  Modal.setAppElement('#root')
+
   const target = document.getElementById("root");
 
   const renderMethod = target.hasChildNodes()
