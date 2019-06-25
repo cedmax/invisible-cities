@@ -81,7 +81,7 @@ export default () => {
                     <Nav api={fullpageApi} sections={titles} isVisible={menuVisible}/>
                   </SvgOverlay>
                   <Overlay title={title} name={background}>
-                    <Copy />
+                    <Copy api={fullpageApi} />
                   </Overlay>
                 </Fragment>
               );
