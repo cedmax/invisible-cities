@@ -81,7 +81,7 @@ export default () => {
                     <Nav api={fullpageApi} sections={titles} isVisible={menuVisible}/>
                   </SvgOverlay>
                   <Overlay title={title} name={background}>
-                    <Copy allowScrolling={fullpageApi && fullpageApi.setAllowScrolling} />
+                    <Copy />
                   </Overlay>
                 </Fragment>
               );
