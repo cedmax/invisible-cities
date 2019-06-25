@@ -1,6 +1,6 @@
 import React from "react";
-export default ({ sections, api }) => (
-  <nav>
+export default ({ sections, api, isVisible }) => (
+  <nav style={{ opacity: isVisible ? 0.9 : 0 }}>
     {sections.map((section, i) => (
       <a
         key={section}

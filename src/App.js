@@ -78,7 +78,7 @@ export default () => {
               return (
                 <Fragment key={background}>
                   <SvgOverlay name={background}>
-                    {menuVisible && <Nav api={fullpageApi} sections={titles} />}
+                    <Nav api={fullpageApi} sections={titles} isVisible={menuVisible}/>
                   </SvgOverlay>
                   <Overlay title={title} name={background}>
                     <Copy allowScrolling={fullpageApi && fullpageApi.setAllowScrolling} />
