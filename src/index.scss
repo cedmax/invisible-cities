@@ -217,6 +217,11 @@ nav {
   position: relative;
   width:100%;
   img {position: absolute;left:0;top:0; width: 100%;}
+  button {
+    border: 0;
+    background: transparent;
+    cursor: pointer
+  }
 }
 
 .close {

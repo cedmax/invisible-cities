@@ -1,14 +1,15 @@
-import React, {Suspense} from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import "./index.scss";
+import Modal from "react-modal";
 import App from "./App";
-import Modal from 'react-modal'
+
 export default App;
 
 // Render your app
 if (typeof document !== "undefined") {
-  Modal.setAppElement('#root')
+  Modal.setAppElement("#root");
 
   const target = document.getElementById("root");
 
@@ -18,7 +19,7 @@ if (typeof document !== "undefined") {
 
   const render = Comp => {
     renderMethod(
-      <Suspense fallback={<div/>}>
+      <Suspense fallback={<div />}>
         <AppContainer>
           <Comp />
         </AppContainer>
