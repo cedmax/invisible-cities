@@ -9,7 +9,7 @@ node_modules
 /data.json
 # testing
 /coverage
-
+/public/artists/*.jpg
 # production
 /dist
 

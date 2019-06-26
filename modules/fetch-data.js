@@ -12,7 +12,7 @@ const fetchImages = async (dataModel, type) => {
   if (dataModel.image) {
     const options = {
       url: dataModel.image,
-      dest: "./public/images",
+      dest: "./public/artists",
     };
 
     const { filename } = await download.image(options);
@@ -22,7 +22,7 @@ const fetchImages = async (dataModel, type) => {
   if (dataModel.gif) {
     const options = {
       url: `${dataModel.gif}`,
-      dest: "./public/images",
+      dest: "./public/artists",
     };
 
     const { filename } = await download.image(options);
