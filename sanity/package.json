@@ -1,0 +1,33 @@
+{
+  "name": "icities",
+  "private": true,
+  "version": "1.0.0",
+  "description": "To use this template, run `react-static create` and use the `basic` template",
+  "main": "package.json",
+  "author": "Marco Cedaro <marco.cedaro@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "test": "sanity check"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^0.141.1",
+    "@sanity/color-input": "^0.141.1",
+    "@sanity/components": "^0.141.1",
+    "@sanity/core": "^0.141.1",
+    "@sanity/default-layout": "^0.141.1",
+    "@sanity/default-login": "^0.141.1",
+    "@sanity/desk-tool": "^0.141.2",
+    "prop-types": "^15.6",
+    "react": "^16.2",
+    "react-dom": "^16.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cedmax/invisible-cities.git"
+  }
+}
