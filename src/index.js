@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Suspense} from "react";
 import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import "./index.scss";
@@ -18,9 +18,11 @@ if (typeof document !== "undefined") {
 
   const render = Comp => {
     renderMethod(
-      <AppContainer>
-        <Comp />
-      </AppContainer>,
+      <Suspense fallback={<div/>}>
+        <AppContainer>
+          <Comp />
+        </AppContainer>
+      </Suspense>,
       target
     );
   };

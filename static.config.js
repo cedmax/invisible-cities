@@ -1,6 +1,7 @@
 import path from "path";
 
 export default {
+  getSiteData: () => require("./data.json"),
   plugins: [
     [
       "react-static-plugin-sass",

@@ -1,4 +1,5 @@
 import React, { Fragment, useCallback, useState } from "react";
+import { useSiteData } from 'react-static';
 import ReactFullpage from "@fullpage/react-fullpage";
 import Overlay from "./components/Overlay";
 import Nav from "./components/Nav";
@@ -23,6 +24,8 @@ const pluginWrapper = () => {
   require("fullpage.js/vendors/scrolloverflow");
 };
 export default () => {
+  const siteData = useSiteData();
+
   const [currentBackground, setCurrentBackground] = useState(0);
   const [logoVisible, setLogoVisible] = useState(true);
   const [menuVisible, setMenuVisible] = useState(false);
@@ -81,7 +84,7 @@ export default () => {
                     <Nav api={fullpageApi} sections={titles} isVisible={menuVisible}/>
                   </SvgOverlay>
                   <Overlay title={title} name={background}>
-                    <Copy api={fullpageApi} />
+                    <Copy siteData={siteData} api={fullpageApi} />
                   </Overlay>
                 </Fragment>
               );
