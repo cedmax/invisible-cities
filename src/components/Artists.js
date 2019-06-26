@@ -25,7 +25,7 @@ const Artist = memo(({ image, name, role, content, api }) => {
           isOpen={visible}
         >
           <h3>{name}</h3>
-          <h4>{role}</h4>
+          <h5>{role}</h5>
           <BlockContent blocks={content} />
         </Modal>
       )}
