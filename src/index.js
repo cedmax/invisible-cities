@@ -10,7 +10,6 @@ export default App;
 // Render your app
 if (typeof document !== "undefined") {
   Modal.setAppElement("#root");
-
   const target = document.getElementById("root");
 
   const renderMethod = target.hasChildNodes()

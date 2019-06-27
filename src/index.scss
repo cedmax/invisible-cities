@@ -50,7 +50,7 @@ h1 {
   text-align: center;
   opacity: 0.9;
   position: absolute;
-  z-index: 100;
+  z-index: 1200;
   white-space: pre;
   transition: all 1s;
   left: 50%;
@@ -108,23 +108,45 @@ h1 {
   }
 }
 
+.true-master,
 .false-master {
   position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   transition: all 0.5s;
 }
 
+.false-master {
+  z-index: -1;
+}
+
+#fullpage {
+  transform: translateX(0);
+}
+
+.true-master {
+  z-index: 1000000;
+  transform: translate3d(0, 0, 1000px);
+  mask-image: var(--mask-image);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  mask-position: bottom center;
+  position: relative;
+}
+
 .component::before,
 .master,
-.false-master {
+.false-master,
+.true-master {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;
 }
 
-.content {
+.content,
+.fake-content {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -173,6 +195,7 @@ h2 {
 }
 
 nav {
+  pointer-events: all;
   top: auto;
   font-weight: bold;
   font-size: 190%;

@@ -21,6 +21,7 @@ export default () => {
 
   const [currentBackground, setCurrentBackground] = useState(0);
   const [logoVisible, setLogoVisible] = useState(true);
+  const [cityOver, setCityOver] = useState(true);
   const [menuVisible, setMenuVisible] = useState(false);
 
   const pagesHelper = useCallback(
@@ -33,36 +34,39 @@ export default () => {
 
   const startTransition = useCallback(
     (current, nextPage) => {
+      setCityOver(nextPage.anchor.endsWith("-pre"));
       setMenuVisible(nextPage.anchor === "about-pre");
       pagesHelper(nextPage.index + 1);
       window.fp_scrolloverflow.iscrollHandler.iScrollInstances.map(instance =>
         setTimeout(() => instance.scrollTo(0, 0), 1000)
       );
     },
-    [pagesHelper, setMenuVisible]
+    [pagesHelper, setMenuVisible, setCityOver]
   );
 
   return (
     <>
       <Head meta={siteData.meta} />
       <div className="master">
-        <FalseMaster
-          logoVisible={logoVisible}
-          backgrounds={backgrounds}
-          currentBackground={currentBackground}
-        />
         <FullPage
           titles={titles}
           startTransition={startTransition}
           render={({ fullpageApi }) => (
             <Body
               siteData={siteData}
-              menuVisible={menuVisible}
               titles={titles}
               backgrounds={backgrounds}
               fullpageApi={fullpageApi}
             />
           )}
+        />
+        <FalseMaster
+          cityOver={cityOver}
+          logoVisible={logoVisible}
+          backgrounds={backgrounds}
+          titles={titles}
+          currentBackground={currentBackground}
+          menuVisible={menuVisible}
         />
       </div>
     </>

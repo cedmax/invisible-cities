@@ -7,13 +7,15 @@ const backgrounds = {
 };
 
 export default ({ name, children, title }) => (
-  <section
-    className="content section fp-auto-height-responsive"
-    style={{
-      background: backgrounds[name],
-    }}
-  >
-    <h2>{title}</h2>
-    {children}
-  </section>
+  <>
+    <section
+      className="content section fp-auto-height-responsive"
+      style={{
+        background: backgrounds[name],
+      }}
+    >
+      <h2>{title}</h2>
+      {children}
+    </section>
+  </>
 );
