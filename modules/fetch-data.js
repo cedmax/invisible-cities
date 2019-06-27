@@ -8,7 +8,7 @@ const transformer = data => {
   return dataModel;
 };
 
-const fetchImages = async (dataModel, type) => {
+const fetchImages = async dataModel => {
   if (dataModel.image) {
     const options = {
       url: dataModel.image,
@@ -17,17 +17,7 @@ const fetchImages = async (dataModel, type) => {
 
     const { filename } = await download.image(options);
     dataModel.image = filename.replace("public/", "/");
-  }
-
-  if (dataModel.gif) {
-    const options = {
-      url: `${dataModel.gif}`,
-      dest: "./public/artists",
-    };
-
-    const { filename } = await download.image(options);
     delete dataModel.thumbnail;
-    dataModel.gif = filename.replace("public/", "/");
   }
 
   return dataModel;

@@ -1,4 +1,4 @@
-import React, { memo, useState, useCallback } from "react";
+import React, { memo, useState, useCallback, useEffect } from "react";
 import Modal from "react-modal";
 import BlockContent from "@sanity/block-content-to-react";
 
@@ -6,29 +6,27 @@ const Artist = memo(({ image, name, role, content, api }) => {
   const [visible, setVisible] = useState(false);
   const show = useCallback(() => {
     setVisible(true);
-    api.setAllowScrolling(false);
-  }, [api, setVisible]);
+  }, [setVisible]);
   const hide = useCallback(() => {
     setVisible(false);
-    api.setAllowScrolling(true);
-  }, [api, setVisible]);
+  }, [setVisible]);
+
+  useEffect(() => {
+    if (api) {
+      api.setAllowScrolling(!visible);
+    }
+  }, [visible]);
 
   return (
     <div className="artist">
       <button type="button" onClick={show}>
         <img src={image} alt={name} />
       </button>
-      {visible && (
-        <Modal
-          style={{ content: { color: "black" } }}
-          onRequestClose={hide}
-          isOpen={visible}
-        >
-          <h3>{name}</h3>
-          <h5>{role}</h5>
-          <BlockContent blocks={content} />
-        </Modal>
-      )}
+      <Modal onRequestClose={hide} isOpen={visible}>
+        <h3>{name}</h3>
+        <h5>{role}</h5>
+        <BlockContent blocks={content} />
+      </Modal>
     </div>
   );
 });
