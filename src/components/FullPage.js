@@ -5,7 +5,7 @@ const pluginWrapper = () => {
   require("fullpage.js/vendors/scrolloverflow");
 };
 
-export default ({ titles, render, startTransition }) => {
+export default ({ titles, backgrounds, render, startTransition }) => {
   return (
     <ReactFullpage
       pluginWrapper={pluginWrapper}
@@ -13,8 +13,8 @@ export default ({ titles, render, startTransition }) => {
       navigation
       normalScrollElements=".ReactModal__Content"
       anchors={titles.reduce(
-        (acc, item) => {
-          acc.push(`${item.toLowerCase()}-pre`, `${item.toLowerCase()}`);
+        (acc, item, i) => {
+          acc.push(`${backgrounds[i].toLowerCase()}`, `${item.toLowerCase()}`);
           return acc;
         },
         [""]

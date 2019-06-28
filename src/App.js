@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState } from "react";
 import { useSiteData } from "react-static";
 import Head from "./components/Head";
 import Body from "./components/Body";
@@ -10,31 +10,25 @@ export default () => {
   const backgrounds = siteData.section.map(({ city }) => city);
   const titles = siteData.section.map(({ title }) => title);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      backgrounds.forEach(city => {
-        const img = new Image();
-        img.src = `/images/${city}.jpg`;
-      });
-    }
-  }, [siteData.section]);
-
   const [currentBackground, setCurrentBackground] = useState(0);
   const [logoVisible, setLogoVisible] = useState(true);
+  const [sectionTitle, setSectionTitle] = useState("");
+
   const [menuVisible, setMenuVisible] = useState(false);
 
   const pagesHelper = useCallback(
-    next => {
-      setLogoVisible(next <= 2);
-      setCurrentBackground(Math.max(0, Math.floor((next - 2) / 2)));
+    (next, nextIdx) => {
+      setLogoVisible(nextIdx <= 2);
+      setCurrentBackground(Math.max(0, Math.floor((nextIdx - 2) / 2)));
+      setSectionTitle(next);
     },
     [setLogoVisible, setCurrentBackground]
   );
 
   const startTransition = useCallback(
     (current, nextPage) => {
-      setMenuVisible(nextPage.anchor === "about-pre");
-      pagesHelper(nextPage.index + 1);
+      setMenuVisible(nextPage.anchor === backgrounds[0].toLowerCase());
+      pagesHelper(nextPage.anchor, nextPage.index + 1);
       window.fp_scrolloverflow.iscrollHandler.iScrollInstances.map(instance =>
         setTimeout(() => instance.scrollTo(0, 0), 1000)
       );
@@ -53,12 +47,14 @@ export default () => {
         />
         <FullPage
           titles={titles}
+          backgrounds={backgrounds}
           startTransition={startTransition}
           render={({ fullpageApi }) => (
             <Body
               siteData={siteData}
               menuVisible={menuVisible}
               titles={titles}
+              sectionTitle={sectionTitle}
               backgrounds={backgrounds}
               fullpageApi={fullpageApi}
             />
