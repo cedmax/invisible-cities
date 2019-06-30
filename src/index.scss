@@ -101,7 +101,7 @@ h1 {
     left: 0;
     top: 0;
     opacity: 0.7;
-    transition: all 1s;
+    transition: all 0.7s ease-out;
     background-image: var(--background);
     background-position: var(--background-position) !important;
     width: 100%;
