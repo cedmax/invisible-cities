@@ -2,14 +2,16 @@ import React, { Fragment } from "react";
 import Overlay from "./Overlay";
 import Nav from "./Nav";
 import SvgOverlay from "./SvgOverlay";
-import TextAbout from "./About";
-import TextNews from "./News";
-import TextArtists from "./Artists";
+import About from "./About";
+import News from "./News";
+import Artists from "./Artists";
+import Gallery from "./Gallery";
 
 const copy = {
-  About: TextAbout,
-  News: TextNews,
-  Artists: TextArtists,
+  About,
+  News,
+  Artists,
+  Gallery,
 };
 
 export default ({
