@@ -17,8 +17,8 @@ export default {
       return {
         title: `${title} (${city})`,
         media: <div style={{position: 'relative'}}>
-          <img src={`https://icities.netlify.com/images/${city}.jpg`} alt="${city}" />
-          <img src={`https://icities.netlify.com/images/${city}.svg`} style={{position: 'absolute', top: 0, left: 0, opacity: .4}} />
+          <img src={`https://icities.netlify.com/images/${city}.jpg`} alt={city} />
+          <img src={`https://icities.netlify.com/images/${city}.svg`} alt={city} style={{position: 'absolute', top: 0, left: 0, opacity: .4}} />
         </div>
       } 
     }
@@ -26,7 +26,7 @@ export default {
   fields: [
     {
       title: "Title",
-      "name": "title",
+      name: "title",
       readOnly: true,
       type: "string"
     },
@@ -40,6 +40,7 @@ export default {
           {title: 'Venice', value: 'venice'},
           {title: 'Wroclaw', value: 'wroclaw'},
           {title: 'Athens', value: 'athens'},
+          {title: 'Edinburgh', value: 'edinburgh'},
         ], 
         layout: 'dropdown' 
       }
