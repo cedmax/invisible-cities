@@ -245,6 +245,10 @@ nav {
   }
 }
 
+.gallery {
+  padding: 10em 0;
+}
+
 .artists {
   padding: 10em 0;
   display: grid;
@@ -257,6 +261,16 @@ nav {
     padding: 0;
     grid-template-columns: repeat(3, 180px);
     grid-auto-rows: 180px;
+  }
+}
+
+#lightboxBackdrop {
+  figcaption {
+    display: none;
+
+    + div {
+      margin: auto;
+    }
   }
 }
 
