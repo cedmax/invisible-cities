@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import Overlay from "./Overlay";
 import Nav from "./Nav";
 import SvgOverlay from "./SvgOverlay";
@@ -11,7 +11,7 @@ const copy = {
   About,
   News,
   Artists,
-  Gallery,
+  Gallery
 };
 
 export default ({
@@ -20,7 +20,7 @@ export default ({
   fullpageApi,
   sectionTitle,
   titles,
-  menuVisible,
+  menuVisible
 }) => (
   <>
     <div className="section" />
