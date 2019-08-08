@@ -333,16 +333,9 @@ nav {
 .thumbnail {
   box-sizing: border-box;
   display: block;
-  float: left;
+  margin: auto;
   line-height: 0;
-  padding-right: 2px;
-  padding-bottom: 2px;
   overflow: hidden;
-
-  @media (max-width: 500px) {
-    padding-right: 4px;
-    padding-bottom: 4px;
-  }
 }
 
 .galleryImg {
