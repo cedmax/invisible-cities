@@ -39,6 +39,10 @@ body {
   color: white;
 }
 
+a, a:active, a:visited {
+  color: white
+}
+
 body {
   @include fluid-type(320px, 1000px, 16px, 22px);
 }
