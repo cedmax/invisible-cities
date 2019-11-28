@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import Overlay from "./Overlay";
 import Nav from "./Nav";
 import SvgOverlay from "./SvgOverlay";
